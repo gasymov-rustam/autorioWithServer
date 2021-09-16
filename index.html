@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en>">
+
+<head>
+  <link rel="preload" href="./css/style.css" as="style" />
+  <meta charset="UTF-8" />
+  <title>homework</title>
+  <meta name="description" content="home, work" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- <script defer src="./js/asideFilters.js"></script> -->
+  <!--        <meta name="keywords" content="home,work">-->
+  <!--        <meta http-equiv="refresh" content="10">-->
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="headname">autorio</h1>
+    <main class="content">
+      <div class="search-form">
+        <form class="search-form__search" id="search">
+          <label>
+            <input type="text" name="searchResult" id="searchResult"
+              class="search-form__searchResult search-form_disactive" disabled>
+          </label>
+          <label>
+            <input type="search" name="searchTo" id="searchTo" class="search-form__searchTo"
+              placeholder="Поиск по критериям" />
+            <button type="submit" class="searchBtn">search</button>
+          </label>
+        </form>
+        <select name="" class="search-form__sortPrice" id="sortBy">
+          <option hidden>to sort</option>
+          <option value="price/1">price to highest</option>
+          <option value="price/-1">price to lowest</option>
+          <option value="rating/1">rating to highest</option>
+          <option value="rating/-1">rating to lowest</option>
+          <option value="model/1">model to highest</option>
+          <option value="model/-1">model to lowest</option>
+        </select>
+
+        <button class="search-form__favorites" id="favoritesCars">Favorites</button>
+        <button class="search-form__favorites" id="deleteCars">Delete From Storage</button>
+        <button class="search-form__favorites" id="allCars">All Cars</button>
+
+        <div class="search-form__square" id="search-form__square">
+          <button class="search-form__btn active" data-type="1">&#8863;</button>
+          <button class="search-form__btn" data-type="2">&#8862;</button>
+        </div>
+      </div>
+      <aside class="sideBarFilters">
+        <h3 class="sideBarFilters__headname">Filters by:</h3>
+        <form class="sideBarFilters__filter-form" id="filterForm">
+          <button type="submit" class="sideBarFilters__filtersBtnResults">Filter</button>
+        </form>
+      </aside>
+      <section class="list cols-1" id="list"></section>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="./js/api.js"></script>
+  <script defer src="./js/homework.js"></script>
+</body>
+
+</html>

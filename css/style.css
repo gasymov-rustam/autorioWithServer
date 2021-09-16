@@ -1,0 +1,538 @@
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    border: inherit;
+    border-radius: 0;
+    outline: none;
+    color: inherit;
+    background: inherit;
+}
+
+dl {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+dd,
+dt {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.headname {
+    font-size: 34px;
+    text-align: center;
+    text-transform: uppercase;
+    color: aquamarine;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-form {
+    width: 100%;
+    height: 22px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.search-form__filter {
+    display: flex;
+    gap: 5px;
+}
+
+.search-form__favorites {
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    padding: 4px 8px;
+    filter:drop-shadow(2px 2px 6px #858586);
+    background: rgb(190, 190, 190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form__filterBy {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-form__sortPrice {
+    padding: 2px 6px;
+}
+
+.search-form__filter {
+    display: flex;
+}
+
+.search-form__square {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    transition: .4s;
+}
+
+.search-form__search {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    /* flex-direction: column; */
+}
+
+.search-form__searchTo,
+.search-form__searchResult {
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 2px 4px;
+    transition: 1s;
+}
+
+.search-form_disactive {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.search-form__btn {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px;
+    background: antiquewhite;
+}
+
+.searchBtn {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.active {
+    background: yellowgreen;
+}
+
+.filters {
+    width: 25%;
+}
+
+.list {
+    max-width: calc(100% - 10px - 30%);
+    width: 70%;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cols-2>.card {
+    width: calc((100% - 20px) / 2);
+}
+
+.cols-2>.card>.car-photo {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    border-radius: 5px;
+    gap: 30px;
+    padding: 10px;
+}
+
+.car-photo {
+    width: 30%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.car-info {
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.car-info__make {
+    color: blueviolet;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.car-info__model {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.car-info__favorites{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.firstHeart, .secondHeart {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.secondHeart {
+    color: red;
+    visibility: hidden;
+}
+
+.car-info__favoritesInp:checked ~ span.firstHeart{
+    visibility: hidden;
+}
+
+.car-info__favoritesInp:checked ~ span.secondHeart{
+    visibility: visible;
+}
+
+
+.car-info__country {
+    width: 100%;
+    color: aqua;
+    text-decoration: underline;
+    font-size: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+
+.car-info__color {
+    width: 100%;
+    font-style: italic;
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+
+.car-info__year {
+    width: 100%;
+    font-size: 12px;
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+
+.car-info__price,
+.car-info__rating {
+    width: 100%;
+    font-size: 20px;
+    color: red;
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0;
+}
+
+.car-info__rating {
+    color: gold;
+}
+
+.car-info__engine-volume,
+.car-info__transmission,
+.car-info__odo,
+.car-info__fuel {
+    width: calc((100% - 5px) / 2);
+    font-size: 16px;
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+    align-items: center;
+}
+
+.car-info__car-consume {
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.car-info__car-consume dl {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.car-info__car-consume_road,
+.car-info__car-consume_city,
+.car-info__car-consume_mixed {
+    width: 33%;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+.car-info__seller {
+    width: 100%;
+    font-size: 20px;
+    color: red;
+    display: flex;
+    gap: 10px;
+}
+
+.sideBarFilters {
+    max-width: calc(100% - 10px - 70%);
+    width: 30%;
+}
+
+.sideBarFilters__headname {
+    font-size: 22px;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.sideBarFilters__filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;  
+}
+
+.sideBarFilters__filter-form fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.sideBarFilters__filter-form legend {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.sideBarFilters__filtersBtnResults {
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.fieldsets-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* .sideBarFilters__filterBy {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 250px;
+    align-items: flex-end;
+}
+
+.sideBarFilters__filterByMake,
+.sideBarFilters__filterByTransmisssion,
+.sideBarFilters__filterByCountry {
+    border: 1px solid black;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.sideBarFilters__filterName {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.sideBarFilters__form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+}
+
+.sideBarFilters__inscription {
+    display: flex;
+    gap: 5px;
+    width: calc((100% - 5px) / 2);
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sideBarFilters__filtersBtnResults {
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 5px;
+} */
