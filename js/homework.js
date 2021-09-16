@@ -24,7 +24,6 @@ let carsFromStorage = [];
 (async function () {
     const [carsData, carsDataError] = await getCars();
     if (!carsDataError) carsFromStorage = carsData;
-    console.log(carsFromStorage);
 })();
 
 axios
@@ -35,7 +34,6 @@ axios
             delete car.id;
             return car;
         });
-        console.log(carsReference);
         carArrLength = carsReference.length;
         printHtml(list, carsReference);
         renderFilterForm(filterFormEl, carsReference);
@@ -288,39 +286,26 @@ list.addEventListener("click", async (e) => {
         const carId = currentInput.closest(".card").dataset.index;
         const carIdx = carsFromStorage.findIndex((item) => item.index === carId);
         const car = carsReference.find((car) => car.index === carId);
-        console.log(carIdx);
-        // console.log(carsFromStorage);
         if (carIdx === -1) {
             const [newCarId, newCarIdError] = await createdFavoriteCars(car);
             if (!newCarIdError) carsFromStorage.push(newCarId);
-            // console.log(carsFromStorage);
-            // console.log(newCarId);
         } else {
-            // console.log(carsFromStorage);
-            // console.log(carsFromStorage[carIdx].id);
-            console.log(`${carIdx} - ${(carsFromStorage[carIdx].id)}`);
-            console.log(carsFromStorage);
-            // const [, deleteCarError] = await deletedFavoriteCars(carsFromStorage[carIdx].id);
-          
-            // if (!deleteCarError) carsFromStorage.splice[(carsFromStorage[carIdx].id, 1)];
-            
             const [, deleteCarError] = await deletedFavoriteCars(carsFromStorage[carIdx].id);
-            if (!deleteCarError) carsFromStorage.splice[carsFromStorage[carIdx].id, 1];
+            if (!deleteCarError) carsFromStorage.splice(carIdx, 1);
         }
     }
 });
 
 favoritesCarsBtn.addEventListener("click", (e) => {
-    cars = carsFromStorage.map((id) => {
-        return carsReference.find((car) => car.id === id);
-    });
-    printHtml(list, cars);
+    printHtml(list, carsFromStorage);
 });
 
 deleteCarsBtn.addEventListener("click", (e) => {
-    // window.localStorage.removeItem("carsFromStorage");
-    carsFromStorage = [];
-    printHtml(list, carsReference);
+    carsFromStorage.forEach(async (element) => {
+        const [, deleteCarError] = await deletedFavoriteCars(element.id);
+        if (!deleteCarError) carsFromStorage = [];
+        printHtml(list, carsReference);
+    }); 
 });
 
 allCarsBtn.addEventListener("click", (e) => {
